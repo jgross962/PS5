@@ -1,0 +1,19 @@
+Package: integrateIt
+Type: Package
+Title: Integrates Values using Simpsons and Trapezoids
+Version: 0.1.0
+Author: Jonathan Gross
+Maintainer: Jonahtan Gross <jonathan.gross@wustl.edu>
+Description: Provides options for two different integral approximations given the x and y values. 
+    Can either integrate using the geometric Trapezoid approximation, or the quadratic Simpson's approximation.
+    Use four spaces when indenting paragraphs within the Description.
+Depends:
+    R (>= 3.0.0),
+    methods
+License: GPL (>= 2)
+Suggests:
+    devtools
+Collate:
+    'Simpson.R'
+    'Trapezoid.R'
+    'integrateIt.R'

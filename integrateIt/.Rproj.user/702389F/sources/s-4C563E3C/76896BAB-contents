@@ -1,0 +1,7 @@
+exportClasses(AllSquares)
+exportClasses(Squares)
+exportMethods(addSquares)
+exportMethods(allSquares)
+exportMethods(getSquares)
+exportMethods(initialize)
+exportMethods(subtractSquares)

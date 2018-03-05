@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1520273732489.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "3997939756",
+    "id" : "C310123",
+    "lastKnownWriteTime" : 1520275327,
+    "last_content_update" : 1520275327790,
+    "path" : "~/GitHub/PS5/integrateIt/R/Simpson.R",
+    "project_path" : "R/Simpson.R",
+    "properties" : {
+        "cursorPosition" : "14,18",
+        "scrollLine" : "0",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 5,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

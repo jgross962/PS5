@@ -1,32 +1,135 @@
 # Jonathan Gross
 # PS5
 
+
+#Define Classes
+
+## Trapezoid Class
+
+### Set Class Method -- has 4 values, x values, y values and
+setClass(
+  Class = "Trapezoid",
+  representation = representation (
+    x = "numeric",
+    y = "numeric",
+    bounds = "numeric",
+    approx = "numeric"
+  ),
+  prototype = prototype(
+    x = NULL,
+    y = NULL,
+    bounds = NULL,
+    approx = NULL
+
+  )
+)
+### Check User has properly created a trapezoid object
+setValidity("Trapezoid",function(object){
+  if (class(object@x) != "numeric"){
+    return("@x is not a valid value")
+  }
+  if (class(object@y) != "numeric"){
+    return("@y is not a valid value")
+  }
+  if (class(object@bounds) != "numeric"){
+    return("@bounds are not valid values")
+  }
+  if(length(object@bounds)!=2){
+    return("@Must provide two values for bounds")
+  }
+  if (class(object@approx) != "numeric"){
+    return("@x is not a valid value")
+  }
+  if (length(x) != length(y)){
+    return("X and Y do not have the same length")
+  }
+})
+
+#Set Initialize Method
+setMethod("initialize","Trapezoid",
+          function(.Object,...){
+              value = callNextMethod()
+              validObject(value)
+  return(value)
+})
+
+# Simpsons Class
+setClass(
+  Class = "Simpson",
+  representation = representation (
+    x = "numeric",
+    y = "numeric",
+    bounds = "numeric",
+    Approximation = "numeric"
+  ),
+  prototype = prototype(
+    x = NULL,
+    y = NULL,
+    bounds = NULL,
+    Approximation = NULL
+
+  )
+)
+
+#Check User has properly created door, by checking class of input
+setValidity("Simpson",function(object){
+  if (class(object@x) != "numeric"){
+    return("@x is not a valid value")
+  }
+  if (class(object@y) != "numeric"){
+    return("@y is not a valid value")
+  }
+  if (class(object@bounds) != "numeric"){
+    return("@bounds are not valid values")
+  }
+  if(length(object@bounds)!=2){
+    return("@Must provide two values for bounds")
+  }
+  if (class(object@approx) != "numeric"){
+    return("@x is not a valid value")
+  }
+  if (length(x) != length(y)){
+    return("X and Y do not have the same length")
+  }
+})
+
+#Set Initialize Method
+setMethod("initialize","Simpson",
+          function(.Object,...){
+            value = callNextMethod()
+            validObject(value)
+            return(value)
+          })
+
+
+# Integrate It Function/Method
 setGeneric("integrateIt",
            function(x = "numeric",
                     y = "numeric",
-                    bounds = "numeric",
+                    bounds = c(1,length(x)),
                     rule = "String"
                     ){
              standardGeneric("integrateIt")
            })
 
 
-setMethod("integrateIt","x","y","bounds","rule",
-          function(x,y,a,b,rule){
-            
-            
-            ## cREATE rule to throw error if x is not sorted
+setMethod("integrateIt",
+          function(x,y,bounds,rule){
+
+            ## CREATE rule to throw error if x is not sorted
             ## Create rule to make sure x and y are same length
-            
+
             # Trapezoid Rule -- using provided formula and fixed size assumption
             if (rule == "Trap"){
               b = x[length(x)]
               a = x[1]
+              ## Formula should be divided by length(x)-1, not length(x) since there are x-1 trapezoids
               width = (b-a)/(length(x)-1)
               T = width*1/2*(sum(2*y)-y[1]-y[length(y)])
+
               return(T)
             }
-            
+
             ## Actual Trapezoid Rule -- if not all fixed size
             # area=0
             # for (i in x[2]:x[length(x)]){
@@ -34,14 +137,15 @@ setMethod("integrateIt","x","y","bounds","rule",
             #   height1 = y[i-1]
             #   height2 = y[i]
             #   area <<- area+ 1/2*width*(height1+height2)
-            # } 
+            # }
             # area
-            
-            
-            
+
+
+
             if (rule == "Simpsons"){
               b = x[length(x)]
               a = x[1]
+              ## Formula should be divided by length(x)-1, not length(x) since there are x-1 trapezoids
               width = (b-a)/(length(x)-1)
               innerVals = 0
               if (length(y)>2){
@@ -56,20 +160,21 @@ setMethod("integrateIt","x","y","bounds","rule",
   )
 
 integrateIt = function(x,y,a,b,rule){
-  
-  
+
+
   ## cREATE rule to throw error if x is not sorted
   ## Create rule to make sure x and y are same length
-  
+
   # Trapezoid Rule -- using provided formula and fixed size assumption
   if (rule == "Trap"){
     b = x[length(x)]
     a = x[1]
+    ## Formula should be divided by length(x)-1, not length(x) since there are x-1 trapezoids
     width = (b-a)/(length(x)-1)
     T = width*1/2*(sum(2*y)-y[1]-y[length(y)])
     return(T)
   }
-  
+
   ## Actual Trapezoid Rule -- if not all fixed size
   # area=0
   # for (i in x[2]:x[length(x)]){
@@ -77,11 +182,11 @@ integrateIt = function(x,y,a,b,rule){
   #   height1 = y[i-1]
   #   height2 = y[i]
   #   area <<- area+ 1/2*width*(height1+height2)
-  # } 
+  # }
   # area
-  
-  
-  
+
+
+
   if (rule == "Simpsons"){
     b = x[length(x)]
     a = x[1]
@@ -99,9 +204,9 @@ integrateIt = function(x,y,a,b,rule){
 
 ## Test Trap
 firstVal = 1
-lastVal = 10
-x = 1:10
-y = 11:20
+lastVal = 11
+x = 1:11
+y = 11:21
 integrateIt(x,y,firstVal,lastVal,"Trap")
 
 x = 1:10

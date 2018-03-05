@@ -1,0 +1,14 @@
+Package: squaresPack
+Title: Adding and subtracting squared values
+Version: 0.1
+Author: Jonathan D. Gross
+Maintainer: Jonathan D Gross <jonathan.gross@wustl.edu>
+Description: Find sum and difference of squared values
+Depends: 
+  R (>= 3.0.0)
+License: GPL (>=2)
+Suggests:
+  devtools
+Collate:
+  'addSquares.R'
+  'subtractSquares.R'
