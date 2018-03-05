@@ -12,10 +12,10 @@
     "path" : "C:/Users/jgros/Downloads/MoreFilesYouNeed (2)/squaresPack/R/addSquares.R",
     "project_path" : null,
     "properties" : {
-        "cursorPosition" : "19,21",
+        "cursorPosition" : "22,0",
         "scrollLine" : "3"
     },
-    "relative_order" : 8,
+    "relative_order" : 2,
     "source_on_save" : false,
     "source_window" : "",
     "type" : "r_source"

@@ -1,0 +1,23 @@
+{
+    "collab_server" : "",
+    "contents" : "",
+    "created" : 1520277960569.000,
+    "dirty" : false,
+    "encoding" : "UTF-8",
+    "folds" : "",
+    "hash" : "1607827449",
+    "id" : "C65DFD6B",
+    "lastKnownWriteTime" : 1520279540,
+    "last_content_update" : 1520279540255,
+    "path" : "~/GitHub/PS5/integrateIt/R/print.R",
+    "project_path" : "R/print.R",
+    "properties" : {
+        "cursorPosition" : "37,42",
+        "scrollLine" : "8",
+        "tempName" : "Untitled1"
+    },
+    "relative_order" : 10,
+    "source_on_save" : false,
+    "source_window" : "",
+    "type" : "r_source"
+}

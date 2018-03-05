@@ -43,14 +43,12 @@ setMethod("initialize","Trapezoid",
 ### Check User has properly created a trapezoid object
 #' @export
 setValidity("Trapezoid",function(object){
+  print(class(object@x))
   if (class(object@x) != "numeric"){
     return("@x is not a valid value")
   }
   if (class(object@y) != "numeric"){
     return("@y is not a valid value")
-  }
-  if (class(object@bounds) != "numeric"){
-    return("@bounds are not valid values")
   }
   if (class(object@approx) != "numeric"){
     return("@x is not a valid value")

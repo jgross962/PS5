@@ -1,6 +1,6 @@
-#' Adding squared values
+#' Integral Approxmiation of Values
 #'
-#' Finds the sum of squared numbers
+#' Finds integral approximation using Trapezoid Rule or Simpsons Rules
 #'
 #' @param x A numeric object representing x values
 #' @param y A numeric object representing y values with the same dimensionality as \code{x}.
@@ -24,18 +24,18 @@
 #' @aliases intregrateIt
 
 #' @export
-setGeneric("integrateIt",
-           function(x = "numeric",
+setGeneric(name="integrateIt",
+           def=function(x = "numeric",
                     y = "numeric",
-                    bounds = c(1,length(x)),
+                    bounds = "numeric",
                     rule = "String"
            ){
              standardGeneric("integrateIt")
            })
 
 #' @export
-setMethod("integrateIt",
-          function(x,y,bounds,rule){
+setMethod(f="integrateIt",
+          definition=function(x="numeric",y="numeric",bounds="numeric",rule="numeric"){
 
             ## CREATE rule to throw error if x is not sorted
             ## Create rule to make sure x and y are same length
@@ -47,7 +47,7 @@ setMethod("integrateIt",
               ## Formula should be divided by length(x)-1, not length(x) since there are x-1 trapezoids
               width = (b-a)/(length(x)-1)
               T = width*1/2*(sum(2*y)-y[1]-y[length(y)])
-              traps = new("Trapezoid", x=x,y=y, approx=T)
+              traps = new("Trapezoid", x=as.numeric(x),y=as.numeric(y), approx=as.numeric(T))
               return(traps)
             }
 
@@ -75,7 +75,7 @@ setMethod("integrateIt",
               }
               innerFourTimesValues = innerVals[which(innerVals%%2==0)]
               S = 1/3*width * (sum(y)+sum(innerVals)+2*sum(innerFourTimesValues))
-              Simps = new("Simpson", x=x,y=y, approx=S)
+              Simps = new("Simpson", x=as.numeric(x),y=as.numeric(y), approx=as.numeric(S))
               return(Simps)
             }
           }

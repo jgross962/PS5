@@ -14,34 +14,38 @@
 #' @aliases Simpson-class initialize
 #' @rdname Simpson
 #' @export
-
-
-# Simpson Class
 setClass(
   Class = "Simpson",
   representation = representation (
     x = "numeric",
     y = "numeric",
-    Approximation = "numeric"
+    approx = "numeric"
   ),
   prototype = prototype(
     x = NULL,
     y = NULL,
-    Approximation = NULL
-
+    approx = NULL
   )
 )
 
+
+#Set Initialize Method
+#' @export
+setMethod("initialize","Simpson",
+          function(.Object,...){
+            value = callNextMethod()
+            validObject(value)
+            return(value)
+          })
+
 #Check User has properly created door, by checking class of input
+#' @export
 setValidity("Simpson",function(object){
   if (class(object@x) != "numeric"){
     return("@x is not a valid value")
   }
   if (class(object@y) != "numeric"){
     return("@y is not a valid value")
-  }
-  if(length(object@bounds)!=2){
-    return("@Must provide two values for bounds")
   }
   if (class(object@approx) != "numeric"){
     return("@x is not a valid value")
@@ -51,10 +55,3 @@ setValidity("Simpson",function(object){
   }
 })
 
-#Set Initialize Method
-setMethod("initialize","Simpson",
-          function(.Object,...){
-            value = callNextMethod()
-            validObject(value)
-            return(value)
-          })

@@ -17,3 +17,5 @@ Collate:
     'Simpson.R'
     'Trapezoid.R'
     'integrateIt.R'
+    'print.R'
+RoxygenNote: 6.0.1
