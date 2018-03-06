@@ -25,3 +25,4 @@ Rule = "Simpsons"
 SimpsObj = integrateIt(x,y,bounds,Rule)
 SimpsObj
 print(SimpsObj)
+

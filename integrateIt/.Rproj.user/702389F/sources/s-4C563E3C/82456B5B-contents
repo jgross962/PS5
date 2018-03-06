@@ -1,0 +1,21 @@
+---
+title: "Gross_459_HW3Q2"
+author: "Jonathan Gross"
+date: "March 5, 2018"
+output: pdf_document
+---
+
+```{r setup, include=FALSE}
+knitr::opts_chunk$set(echo = TRUE)
+```
+
+What is the posterior distribution of the difference of the means, $\mu_t - \mu_c $
+From 2 (a):
+$\mu_c $ follows a t-distribution with 31 degrees fo freedom, mean 1.013 and variance .0018
+$\mu_t $ follows a t-distribution with 35 degrees fo freedom, mean 1.173 and variance .00111
+
+```{r}
+
+rt()
+
+```
