@@ -15,28 +15,22 @@
 #' rule = "Simpsons"
 #' obj = integrateIt(x,y,bounds,rule)
 #' print(obj)
+#'
 #' @rdname print
 #' @aliases print
 
 
-
-
-
-setGeneric(name="print",
-           def=function(object)
-           {standardGeneric("print")}
-)
-
 #' @export
-setMethod(f="print", signature= "Trapezoid",
-          definition = function(object){
-            return(c("The Trapezoid Integral Approximation Is: ",object@approx))
+setMethod(f="print", "Trapezoid",
+          definition = function(x){
+            return(x@approx)
           }
 )
 
+
 #' @export
-setMethod(f= "print", signature= "Simpson",
-          definition=function(object){
-            return(c("The Simpson Integral Approximation Is: ",object@approx))
+setMethod(f="print", "Simpson",
+          definition = function(x){
+            return(x@approx)
           }
 )
